@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💘 Te Amo 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6d6, #fff1f1);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+    }
+
+    .marco {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 12px double #ff85a2;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    .mensaje {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ff2f91;
+      font-size: 2.5em;
+      text-align: center;
+      animation: latido 2.5s infinite ease-in-out;
+      text-shadow: 0 0 10px #ffbfd5;
+      padding: 0 10px;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.1); }
+    }
+
+    .corazon {
+      position: absolute;
+      font-size: 1.5em;
+      animation: flotar 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes flotar {
+      0% {
+        bottom: -30px;
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        bottom: 100%;
+        transform: scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .destello {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: brillar 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes brillar {
+      0% { opacity: 0.3; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .tarjeta {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffe4ec;
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+      text-align: left;
+      width: 85%;
+      max-width: 360px;
+      font-size: 0.95em;
+      color: #d61b6b;
+      line-height: 1.5;
+      animation: aparecer 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .tarjeta h2 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    .tarjeta ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    @keyframes aparecer {
+      from { transform: translateX(-50%) translateY(20px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      .mensaje {
+        font-size: 2em;
+      }
+
+      .tarjeta {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="marco"></div>
+<div class="mensaje">💖 Te amo muchísimo 💖</div>
+
+<div class="tarjeta">
+  <h2>🌹 Cosas que me encantan de ti 🌹</h2>
+  <ul>
+    <li>✨ Me encantan tus ojos, parecen dos estrellas brillando</li>
+    <li>💫 Tu sonrisa ilumina mi mundo entero</li>
+    <li>🌸 Tu voz es mi melodía favorita</li>
+    <li>💕 Cada momento contigo es mágico</li>
+    <li>🌷 Tu forma de ser me hace feliz cada día</li>
+  </ul>
+</div>
+
+<script>
+  function crearCorazon() {
+    const corazon = document.createElement('div');
+    corazon.classList.add('corazon');
+    corazon.style.left = Math.random() * 100 + 'vw';
+    corazon.style.color = ['#ff69b4', '#ff1493', '#ff85a2'][Math.floor(Math.random() * 3)];
+    corazon.textContent = ['💗', '💓', '💕'][Math.floor(Math.random() * 3)];
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 6000);
+  }
+  setInterval(crearCorazon, 500);
+
+  for (let i = 0; i < 40; i++) {
+    const destello = document.createElement('div');
+    destello.classList.add('destello');
+    destello.style.top = Math.random() * 100 + 'vh';
+    destello.style.left = Math.random() * 100 + 'vw';
+    document.body.appendChild(destello);
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

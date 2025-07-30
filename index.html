@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💘 Te Amo 💘</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌈 Amor Infinito para Lexca 🌈</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffd6d6, #fff1f1);
-      overflow: hidden;
+      padding: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top center, #ffe0f5, #ffd1ea);
       font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
       position: relative;
     }
 
@@ -18,149 +20,243 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 12px double #ff85a2;
-      box-sizing: border-box;
+      border: 8px double #ff85a2;
       pointer-events: none;
+      z-index: 1;
     }
 
     .mensaje {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #ff2f91;
-      font-size: 2.5em;
+      margin-top: 20px;
       text-align: center;
+      font-size: 2.5em;
+      color: #ff2f91;
+      text-shadow: 0 0 12px #ffc1de;
       animation: latido 2.5s infinite ease-in-out;
-      text-shadow: 0 0 10px #ffbfd5;
-      padding: 0 10px;
+      z-index: 2;
     }
 
     @keyframes latido {
-      0%, 100% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.1); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
-    .corazon {
-      position: absolute;
-      font-size: 1.5em;
-      animation: flotar 6s linear infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes flotar {
-      0% {
-        bottom: -30px;
-        transform: scale(1);
-        opacity: 0.8;
-      }
-      100% {
-        bottom: 100%;
-        transform: scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    .destello {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.6;
-      animation: brillar 3s infinite alternate ease-in-out;
-    }
-
-    @keyframes brillar {
-      0% { opacity: 0.3; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.5); }
+    .contenedor-central {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      z-index: 2;
+      padding: 0 20px;
     }
 
     .tarjeta {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffe4ec;
-      padding: 15px 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
-      text-align: left;
-      width: 85%;
-      max-width: 360px;
-      font-size: 0.95em;
+      background: #fffafc;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 135, 180, 0.3);
+      padding: 25px 20px;
+      max-width: 350px;
+      margin: 0 auto;
       color: #d61b6b;
-      line-height: 1.5;
       animation: aparecer 2s ease-out forwards;
       opacity: 0;
     }
 
     .tarjeta h2 {
-      margin-top: 0;
       text-align: center;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      color: #ff4080;
     }
 
     .tarjeta ul {
-      padding-left: 18px;
+      list-style: none;
+      padding: 0;
       margin: 0;
     }
 
+    .tarjeta li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .tarjeta li::before {
+      content: "💖";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
     @keyframes aparecer {
-      from { transform: translateX(-50%) translateY(20px); opacity: 0; }
-      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+
+    .osito {
+      width: 110px;
+      margin: 20px auto 0;
+      display: block;
+      animation: latido 3s infinite ease-in-out;
+    }
+
+    .corazon, .frase, .destello, .nube {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corazon {
+      font-size: 1.6em;
+      animation: flotar 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    .frase {
+      font-size: 1.2em;
+      color: #d61b6b;
+      opacity: 0.9;
+      animation: subirMensaje 7s linear forwards;
+      text-shadow: 1px 1px 2px white;
+    }
+
+    @keyframes flotar {
+      0% { bottom: -30px; transform: scale(1); opacity: 0.8; }
+      100% { bottom: 100%; transform: scale(0.5); opacity: 0; }
+    }
+
+    @keyframes subirMensaje {
+      0% { bottom: -30px; opacity: 1; transform: scale(1); }
+      100% { bottom: 100%; opacity: 0; transform: scale(0.6); }
+    }
+
+    .destello {
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      animation: brillar 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes brillar {
+      0% { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 0.8; transform: scale(1.4); }
+    }
+
+    .nube {
+      width: 80px;
+      height: 40px;
+      background: #fff;
+      border-radius: 40px;
+      opacity: 0.4;
+      animation: deslizar 20s linear infinite;
+    }
+
+    @keyframes deslizar {
+      0% { left: -100px; top: 60px; }
+      100% { left: 110%; top: 60px; }
     }
 
     @media (max-width: 480px) {
-      .mensaje {
-        font-size: 2em;
-      }
-
-      .tarjeta {
-        font-size: 0.9em;
-      }
+      .mensaje { font-size: 1.8em; margin-top: 10px; }
+      .tarjeta { font-size: 1em; padding: 20px 15px; }
+      .osito { width: 90px; }
     }
   </style>
 </head>
 <body>
 
 <div class="marco"></div>
-<div class="mensaje">💖 Te amo muchísimo 💖</div>
 
-<div class="tarjeta">
-  <h2>🌹 Cosas que me encantan de ti 🌹</h2>
-  <ul>
-    <li>✨ Me encantan tus ojos, parecen dos estrellas brillando</li>
-    <li>💫 Tu sonrisa ilumina mi mundo entero</li>
-    <li>🌸 Tu voz es mi melodía favorita</li>
-    <li>💕 Cada momento contigo es mágico</li>
-    <li>🌷 Tu forma de ser me hace feliz cada día</li>
-  </ul>
+<div class="mensaje">🌸 Te amo con todo mi corazón 🌸</div>
+
+<div class="contenedor-central">
+  <div class="tarjeta">
+    <h2>💞 Razones por las que te adoro 💞</h2>
+    <ul>
+      <li>Tu risa me da vida</li>
+      <li>Tus abrazos me curan</li>
+      <li>Tu mirada me inspira</li>
+      <li>Tu dulzura me enamora</li>
+      <li>Y contigo... todo es posible</li>
+    </ul>
+  </div>
+  <img class="osito" src="https://tse2.mm.bing.net/th/id/OIP.wpo_y6nT7TYqI9HFlSvb4gHaHa?pid=ImgDetMain" alt="Osito con corazón">
 </div>
 
 <script>
   function crearCorazon() {
-    const corazon = document.createElement('div');
-    corazon.classList.add('corazon');
-    corazon.style.left = Math.random() * 100 + 'vw';
-    corazon.style.color = ['#ff69b4', '#ff1493', '#ff85a2'][Math.floor(Math.random() * 3)];
-    corazon.textContent = ['💗', '💓', '💕'][Math.floor(Math.random() * 3)];
-    document.body.appendChild(corazon);
-    setTimeout(() => corazon.remove(), 6000);
+    const el = document.createElement('div');
+    el.classList.add('corazon');
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.bottom = '-30px';
+    el.style.color = ['#ff69b4', '#ff1493', '#ff85a2'][Math.floor(Math.random() * 3)];
+    el.textContent = ['💗','💓','💕','💖'][Math.floor(Math.random() * 4)];
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 6000);
   }
-  setInterval(crearCorazon, 500);
 
-  for (let i = 0; i < 40; i++) {
-    const destello = document.createElement('div');
-    destello.classList.add('destello');
-    destello.style.top = Math.random() * 100 + 'vh';
-    destello.style.left = Math.random() * 100 + 'vw';
-    document.body.appendChild(destello);
+  function crearFrase() {
+    const el = document.createElement('div');
+    el.classList.add('frase');
+    el.style.left = Math.random() * 90 + 'vw';
+    el.style.bottom = '-30px';
+    const frases = [
+      'Te amo, Lexca 💗',
+      'Eres mi todo 💖',
+      'Te adoro 💓',
+      'Mi corazón es tuyo 💘',
+      'Contigo siempre 💞',
+      'Eres la razón de mi sonrisa 🌸',
+      'Amarte es mi alegría 💫',
+      'Siempre tú 💝',
+      'Lexca, mi amor eterno 🌷',
+      'Cada latido es por ti 💟',
+      'Lexquita hermosa 💗',
+      'Amor infinito 💘'
+    ];
+    el.textContent = frases[Math.floor(Math.random() * frases.length)];
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 7000);
   }
+
+  function crearDestellos() {
+    for (let i = 0; i < 40; i++) {
+      const el = document.createElement('div');
+      el.classList.add('destello');
+      el.style.top = Math.random() * 100 + 'vh';
+      el.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(el);
+    }
+  }
+
+  function crearNube() {
+    const el = document.createElement('div');
+    el.classList.add('nube');
+    el.style.top = (Math.random() * 40 + 20) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 20000);
+  }
+
+  setInterval(crearCorazon, 500);
+  setInterval(crearFrase, 1500);
+  setInterval(crearNube, 8000);
+  crearDestellos();
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+     
+     
+
+
+
+
 
 
 
